@@ -17,36 +17,47 @@ Array.prototype.shuffle = function() {
   }
   return this;
 }
+function shuffle(sourceArray) {
+    for (var n = 0; n < sourceArray.length - 1; n++) {
+        var k = n + Math.floor(Math.random() * (sourceArray.length - n));
+
+        var temp = sourceArray[k];
+        sourceArray[k] = sourceArray[n];
+        sourceArray[n] = temp;
+    }
+}
+
 var source = $("#card").html();
 var template = Handlebars.compile(source);
             
 $(function() {
   var choosen = [];
-  for (var i = 0; i < 9; i++) {
-    var context = data.data.splice(randomNumber(data.data.length) - 1, 1);
-        context[0].name = context[0].name.substr(0, 17);
-    choosen.push(context[0]);
-    choosen.push(context[0]);
-    console.log(context[0]);
-  }
-  console.dir(choosen);
-  choosen = choosen.sort(function() { return Math.random();});
-  console.dir(choosen);
-  for (var y = 0; y < 18; y++) {
-    var context2 = choosen.pop();
-    var html = template(context2);
-    $('#app').append(html); 
-    
-  }
-
-
   var counter = 0;
   var timeoutID;
   var person1;
   var person2;
   var firstclick;
 
+  for (var i = 0; i < 9; i++) {
+    var context = data.data.splice(randomNumber(data.data.length) - 1, 1);
+        context[0].name = context[0].name.substr(0, 17);
+    choosen.push(context[0]);
+    choosen.push(context[0]);
+  }
+  
+  shuffle(choosen);
+
+  var htmlstring;
+  for (var y = 0; y < 18; y++) {
+    var context2 = choosen.pop();
+    var html = template(context2);
+    htmlstring += html;
+  }
+  $('#app').append(htmlstring);
+
+
   function vend() {
+    if($(this).hasClass('hover_effect')) return;
     if(counter === 0){
       window.clearTimeout(timeoutID);
       $('.hover_effect').removeClass('hover_effect');
@@ -59,7 +70,6 @@ $(function() {
     }
     if (counter === 2) {
       person2 = $(this).data('id');
-      console.log(person1, person2, person1 === person2);
       if(person1 === person2){
           $(this).add(firstclick).addClass('final');
       }
