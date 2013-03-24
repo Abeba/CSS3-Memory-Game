@@ -1,0 +1,122 @@
+#app {
+  width: 1200px;
+  margin: 0 auto;
+}
+/* Large desktop */
+@media (max-width: 1200px) {
+    #app {
+    width: 960px !important;
+  }
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  #app {
+    width: 760px !important;
+  }
+.card_container {
+  width: 105px !important;
+  height: 150px !important;
+}
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (min-width: 710px) and (max-width: 767px) {
+   #app {
+    width: 700px !important;
+  }
+.card_container {
+  width: 105px !important;
+  height: 150px !important;
+  }
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 710px) {
+#app {
+  width: 480px !important;
+  
+}
+.card_container {
+  width: 105px !important;
+  height: 150px !important;
+  }
+  
+}
+
+.card_container {
+  position: relative;
+  margin: 10px;
+  width: 140px;
+  height: 200px;
+  z-index: 1;
+  float: left;
+}
+.card_container {
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -o-perspective: 1000px;
+  perspective: 1000px;
+}
+.card {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: all 0.7s ease-in-out;
+  -o-transform-style: preserve-3d;
+  -o-transition: all 0.7s ease-in-out;
+  transform-style: preserve-3d;
+  transition: all 0.7s ease-in-out;
+}
+.card_container.final .card,
+.card_container.hover_effect .card {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.face {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.face.back {
+  height: 100%;
+  width: 100%;
+  display: block;
+  -webkit-transform: rotateY(180deg);
+  -webkit-box-sizing: border-box;
+  -moz-transform: rotateY(180deg);
+  -moz-box-sizing: border-box;
+  -o-transform: rotateY(180deg);
+  -o-box-sizing: border-box;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  color: black;
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px #acacac solid;
+  font-family: verdana;
+  font-size: 11px;
+}
+.face.back img {
+  border-radius: 4px;
+  border: 1px #acacac solid;
+}
+.hover_effect .card {
+border-radius: 5px;
+box-shadow: 0px 0px 5px 1px rgba(0, 55, 92, 0.23);
+}
+.final .card {
+border-radius: 5px;
+box-shadow: 0px 0px 5px 1px green;
+}
+.name {
+  overflow: hidden;
+}

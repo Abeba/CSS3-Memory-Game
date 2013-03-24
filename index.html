@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <title>CSS3 Vendespil - MemoryGame
+    </title>
+    <script id="card" type="text/x-handlebars-template">
+      <div class="card_container" data-id="{{id}}">
+          <div class="card shadow">
+            <div class="front face">
+              <img height="100%" width="100%" src="playing-card-back.jpg"/>
+            </div>
+            <div class="back face center">
+              <img width="88%" src="{{picture.data.url}}" />
+              <p class='name'>{{name}}</p>
+            </div>
+          </div>
+      </div>
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js"></script>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
